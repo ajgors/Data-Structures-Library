@@ -17,19 +17,19 @@ public:
 	~String();
 
 
-	String& operator=(const String& string);
-	String& operator=(const char* string);
-	String& operator+(const char* to_append);
+	String&			operator=(const String& string);
+	String&			operator=(const char* string);
+	String&			operator+(const char* to_append);
 	bool			operator==(String& other);
 	bool			operator==(const char* other);
 	bool			operator!=(const char* other);
-	char& operator[](size_t index);
+	char&			operator[](size_t index);
 
 
 	void			pop_back();
 	void			print();
 	String			append(char to_append);
-	String& append(const char* to_append);
+	String&			append(const char* to_append);
 	size_t			length();
 	int				find(const char* str);
 	bool			contains(const char* substring);
@@ -39,7 +39,7 @@ public:
 	String			cut(size_t index);
 	String			substr(size_t start, size_t end);
 	char			at(size_t index);
-	char* c_str();
+	char*			c_str();
 	void			clear();
 	int				countChar(char c);
 	void			trim();
@@ -47,5 +47,3 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const String& string);
 	friend std::istream& operator>>(std::istream& is, String& out);
 };
-
-

@@ -15,7 +15,7 @@ public:
 	Vector(const Vector& other);
 	~Vector();
 
-	T& operator[](size_t index);
+	T&				operator[](size_t index);
 	void			allocate(size_t size);
 	void			push_back(T val);
 	T				pop_back();
@@ -52,7 +52,6 @@ template <typename T>
 void Vector<T>::allocate(size_t size) {
 	realocate(size);
 };
-
 
 template <typename T>
 void Vector<T>::push_back(T val) {
