@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Typ struktury, opisujący listę jednokierunkową liczb całkowitych.
+// Głowa listy ma nieokreśloną wartość pola "value".
+typedef struct list {
+    int value;
+    struct list *next;
+} list_t;
+
+// Inicjalizuje listę o głowie "head".
+void init( list_t *head ) {
+    head->next = NULL;
+}
+
+// Dodajemy element o wartości "value" jako następnik elementu "l".
+void add_after( list_t *l, int value ) {
+    list_t *x = (list_t *) malloc( sizeof(list_t) );
+
+    x->value = value;
+    x->next = l->next;
+    l->next = x;
+}
+
+// Usuwa element będący następnikiem elementu "l".
+void remove_after( list_t *l ) {
+    if ( l->next != NULL ) {
+        void* x = l->next;
+        l->next = l->next->next;
+        free( x );
+    }
+}
+
+// Wypisuje listę o głowie "h".
+void print( list_t *h ) {
+    h = h->next; // Pomijamy wartość nieokreśloną w głowie.
+    while ( h != NULL ) {
+        printf ("%d ", h->value);
+        h = h->next;
+    }
+    printf ("\n");
+}
+
+
+int main() {
+    list_t l;
+
+    init( &l );
+
+    // Wstawienie kolejnych elementów do listy.
+    // Nowo wstawiany element wędruje na koniec listy.
+    list_t *cur = &l;
+    for (int i=1; i<=10; i++) {
+        add_after( cur, i );
+        cur = cur->next;
+    }
+
+    print( &l );
+
+    // Usunięcie wszystkich elementów z listy.
+    while( l.next != NULL )
+        remove_after( &l );
+
+    print (&l);
+
+    // Wstawienie kolejnych elementów do listy.
+    // Nowo wstawiany element wędruje na początek listy.
+    for(int i=1; i<=10; i++)
+        add_after( &l, i );
+
+    print (&l);
+
+    // Usuwanie elementów z listy -- ostrożnie!
+    // Gdyby l.next == NULL, to poniższy kod tworzyłby sytuację błędną.
+    // Poniższy kod nie usunie wszystkich elementów listy.
+    list_t *ptr = &l;
+    do
+        remove_after( ptr );
+    while ( (ptr = ptr->next) != NULL );
+
+    print (&l);
+    
+    return 0;
+}
