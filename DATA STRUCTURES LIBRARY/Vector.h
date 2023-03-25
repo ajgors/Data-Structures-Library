@@ -15,7 +15,7 @@ public:
 	Vector(const Vector& other);
 	~Vector();
 
-	T&				operator[](size_t index);
+	T& operator[](size_t index);
 	void			allocate(size_t size);
 	void			push_back(T val);
 	T				pop_back();
@@ -68,7 +68,7 @@ void Vector<T>::push_back(T val) {
 
 template <typename T>
 T Vector<T>::pop_back() {
-	
+
 	if (m_count <= m_allocated_size / 2) {
 		m_allocated_size = m_allocated_size / 2;
 		realocate(m_allocated_size);
@@ -77,7 +77,7 @@ T Vector<T>::pop_back() {
 		m_count--;
 		return m_data[m_count];
 	}
-	else{
+	else {
 		//cout << "Vector is empty" << endl;
 	}
 }

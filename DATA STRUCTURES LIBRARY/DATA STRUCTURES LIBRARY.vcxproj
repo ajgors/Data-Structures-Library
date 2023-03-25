@@ -22,8 +22,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d6c69663-5c87-4842-bbbb-1139e1738a98}</ProjectGuid>
-    <RootNamespace>vector</RootNamespace>
+    <ProjectGuid>{64b01450-42ef-46eb-a7e7-b1cb104390b0}</ProjectGuid>
+    <RootNamespace>DATASTRUCTURESLIBRARY</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
