@@ -215,18 +215,16 @@ std::ostream& operator<<(std::ostream& os, const String& string) {
 }
 
 std::istream& operator>>(std::istream& in, String& out) {
-	
+
 	int c;
 	out.clear();
-
+	in >> std::ws;
 	while (true) {
 		c = in.get();
-		if (isspace(c) || c == EOF) break;
+		if (isspace(c) || c == EOF) {
+			break;
+		}
 		out.append(c);
 	}
-	//char* buffor = new char[100]();
-	//in >> buffor;
-	//out = buffor;
-	//delete[] buffor;
 	return in;
 }
